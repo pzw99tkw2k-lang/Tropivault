@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tropivault | Premium Curations & Link Hub</title>
+    <!-- Google Fonts for Sleek Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #bc9393; /* Matching your logo's rich, darker tropical undertone */
+            --card-bg: #dec2c2;  /* Lighter complementary shade for cards */
+            --text-dark: #3a2a2a;
+            --text-light: #ffffff;
+            --accent-glow: #ffebd2; /* The subtle golden glow from your logo */
+            --accent-green: #2d4a43; /* The deep tropical palm green */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 5rem 2rem 3rem 2rem;
+            background: linear-gradient(180deg, rgba(58,42,42,0.1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-tagline {
+            font-size: 1rem;
+            letter-spacing: 0.15rem;
+            text-transform: uppercase;
+            color: var(--accent-glow);
+            font-weight: 300;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Grid Layout split between Products and the Order Vault Form */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 858px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Headings */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Product Showcase Section */
+        .product-section {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background-color: rgba(58,42,42,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: rgba(58,42,42,0.6);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Order Hub Form Section */
+        .form-section {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            height: fit-content;
+        }
+
+        .form-section h2 {
+            color: var(--accent-glow);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: #d1bebe;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.85rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-glow);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-glow);
+        }
+
+        .success-message {
+            display: none;
+            background-color: rgba(45, 74, 67, 0.3);
+            border: 1px solid var(--accent-green);
+            color: var(--text-light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+            letter-spacing: 0.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-title">Tropivault</div>
+        <div class="brand-tagline">Tropical Curios • Miami Connect</div>
+    </header>
+
+    <main>
+        <div class="content-grid">
+            
+            <!-- LEFT COLUMN: POSTED PRODUCTS -->
+            <section class="product-section">
+                <h2>🌴 Current Vault Drops</h2>
+                <div class="product-grid">
+                    
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df4906b18563?w=400&auto=format&fit=crop&q=60')"></div>
+                        <div class="product-info">
+                            <div class="product-name">Premium Gel Palette</div>
+                            <div class="product-price">$180 TTD</div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&auto=format&fit=crop&q=60')"></div>
+                        <div class="product-info">
+                            <div class="product-name">Pro Acrylic Brush Set</div>
+                            <div class="product-price">$245 TTD</div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60')"></div>
+                        <div class="product-info">
+                            <div class="product-name">Hydrating Cuticle Oil Trio</div>
+                            <div class="product-price">$95 TTD</div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1515688594390-b649af70d282?w=400&auto=format&fit=crop&q=60')"></div>
+                        <div class="product-info">
+                            <div class="product-name">High-Gloss Top Coat (HEMA-Free)</div>
+                            <div class="product-price">$120 TTD</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: ORDER LINK SUBMISSION -->
+            <section class="form-section">
+                <h2>🔒 Unlock The Vault</h2>
+                <p style="font-size: 0.9rem; color: #b19e9e; margin-bottom: 1.5rem;">Found an item on a US website? Paste the links below, and we'll bring it home via our Miami hub.</p>
+                
+                <div class="success-message" id="successMessage">
+                    ✅ Order submitted! We'll contact you shortly via WhatsApp.
+                </div>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Your Full Name</label>
+                        <input type="text" id="name" placeholder="Alana Maria" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Phone Number / WhatsApp</label>
+                        <input type="tel" id="contact" placeholder="e.g. 1-868-555-5555" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="links">Product Link(s)</label>
+                        <textarea id="links" rows="4" placeholder="Paste Amazon, Sephora, or wholesale links here..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Order Specifications (Optional)</label>
+                        <textarea id="details" rows="3" placeholder="Specify sizes, shade names, quantities, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit to Vault</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 TROPIVAULT. All rights reserved. Connecting Miami to the Caribbean.
+    </footer>
+
+    <!-- Form Submission Script -->
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect Form Values
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const links = document.getElementById('links').value;
+            const details = document.getElementById('details').value;
+
+            // Generate WhatsApp message string
+            const message = `Hello Tropivault! 🌴\nI'd like to submit an order request:\n\n👤 *Name:* ${name}\n📞 *Contact:* ${contact}\n🔗 *Links:* ${links}\n📝 *Details:* ${details || 'None'}`;
+            
+            // Encode text for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Redirect to WhatsApp after 2 seconds
+            setTimeout(function() {
+                window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
