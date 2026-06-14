@@ -11,12 +11,12 @@
     
     <style>
         :root {
-            --bg-color: #bc9393; /* Matching your logo's rich, darker tropical undertone */
-            --card-bg: #dec2c2;  /* Lighter complementary shade for cards */
+            --bg-color: #bc9393;
+            --card-bg: #dec2c2;
             --text-dark: #3a2a2a;
             --text-light: #ffffff;
-            --accent-glow: #ffebd2; /* The subtle golden glow from your logo */
-            --accent-green: #2d4a43; /* The deep tropical palm green */
+            --accent-glow: #ffebd2;
+            --accent-green: #2d4a43;
         }
 
         * {
@@ -37,6 +37,10 @@
             text-align: center;
             padding: 5rem 2rem 3rem 2rem;
             background: linear-gradient(180deg, rgba(58,42,42,0.1) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .brand-title {
@@ -54,6 +58,27 @@
             text-transform: uppercase;
             color: var(--accent-glow);
             font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .header-nav a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent-glow);
         }
 
         main {
@@ -62,89 +87,10 @@
             padding: 2rem;
         }
 
-        /* Grid Layout split between Products and the Order Vault Form */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 3rem;
-        }
-
-        @media (max-width: 858px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Section Headings */
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+        /* Single Column Layout - Just the Form */
+        .content-wrapper {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Product Showcase Section */
-        .product-section {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .product-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 180px;
-            background-color: rgba(58,42,42,0.1);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-style: italic;
-            color: rgba(58,42,42,0.6);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .product-info {
-            padding: 1rem;
-        }
-
-        .product-name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .product-price {
-            font-size: 1.1rem;
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
         }
 
         /* Order Hub Form Section */
@@ -154,11 +100,21 @@
             padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            height: fit-content;
+            width: 100%;
+            max-width: 600px;
         }
 
         .form-section h2 {
             color: var(--accent-glow);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-intro {
+            font-size: 0.9rem;
+            color: #b19e9e;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
@@ -231,6 +187,21 @@
             opacity: 0.8;
             letter-spacing: 0.05rem;
         }
+
+        @media (max-width: 600px) {
+            .brand-title {
+                font-size: 2rem;
+            }
+
+            .form-section {
+                padding: 1.5rem;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -238,59 +209,19 @@
     <header>
         <div class="brand-title">Tropivault</div>
         <div class="brand-tagline">Tropical Curios • Miami Connect</div>
+        <nav class="header-nav">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="admin.html">Admin</a>
+        </nav>
     </header>
 
     <main>
-        <div class="content-grid">
-            
-            <!-- LEFT COLUMN: POSTED PRODUCTS -->
-            <section class="product-section">
-                <h2>🌴 Current Vault Drops</h2>
-                <div class="product-grid">
-                    
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df4906b18563?w=400&auto=format&fit=crop&q=60')"></div>
-                        <div class="product-info">
-                            <div class="product-name">Premium Gel Palette</div>
-                            <div class="product-price">$180 TTD</div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&auto=format&fit=crop&q=60')"></div>
-                        <div class="product-info">
-                            <div class="product-name">Pro Acrylic Brush Set</div>
-                            <div class="product-price">$245 TTD</div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60')"></div>
-                        <div class="product-info">
-                            <div class="product-name">Hydrating Cuticle Oil Trio</div>
-                            <div class="product-price">$95 TTD</div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1515688594390-b649af70d282?w=400&auto=format&fit=crop&q=60')"></div>
-                        <div class="product-info">
-                            <div class="product-name">High-Gloss Top Coat (HEMA-Free)</div>
-                            <div class="product-price">$120 TTD</div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- RIGHT COLUMN: ORDER LINK SUBMISSION -->
+        <div class="content-wrapper">
+            <!-- ORDER LINK SUBMISSION -->
             <section class="form-section">
                 <h2>🔒 Unlock The Vault</h2>
-                <p style="font-size: 0.9rem; color: #b19e9e; margin-bottom: 1.5rem;">Found an item on a US website? Paste the links below, and we'll bring it home via our Miami hub.</p>
+                <p class="form-intro">Found an item on a US website? Paste the links below, and we'll bring it home via our Miami hub.</p>
                 
                 <div class="success-message" id="successMessage">
                     ✅ Order submitted! We'll contact you shortly via WhatsApp.
@@ -320,7 +251,6 @@
                     <button type="submit" class="submit-btn">Submit to Vault</button>
                 </form>
             </section>
-
         </div>
     </main>
 
@@ -328,30 +258,23 @@
         &copy; 2026 TROPIVAULT. All rights reserved. Connecting Miami to the Caribbean.
     </footer>
 
-    <!-- Form Submission Script -->
     <script>
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Collect Form Values
             const name = document.getElementById('name').value;
             const contact = document.getElementById('contact').value;
             const links = document.getElementById('links').value;
             const details = document.getElementById('details').value;
 
-            // Generate WhatsApp message string
             const message = `Hello Tropivault! 🌴\nI'd like to submit an order request:\n\n👤 *Name:* ${name}\n📞 *Contact:* ${contact}\n🔗 *Links:* ${links}\n📝 *Details:* ${details || 'None'}`;
             
-            // Encode text for URL
             const encodedMessage = encodeURIComponent(message);
             
-            // Show success message
             document.getElementById('successMessage').style.display = 'block';
             
-            // Reset form
             this.reset();
             
-            // Redirect to WhatsApp after 2 seconds
             setTimeout(function() {
                 window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
             }, 2000);
